@@ -26,3 +26,14 @@ var abc;
 var b = abc.red;
 var c = abc[2];
 console.log(c);
+var notSure = 4;
+notSure = 'ss';
+notSure = false;
+// notSure.toFixed()
+var demoObj = 4;
+console.log(demoObj);
+// demoObj.toFixed()
+var list = [1, 'asdfg', false];
+console.log(list[1]);
+list[1] = 100;
+console.log(list[1]);

@@ -32,3 +32,18 @@ let b: abc = abc.red
 let c = abc[2]
 console.log(c)
 
+let notSure: any = 4
+notSure = 'ss'
+notSure = false
+// notSure.toFixed()
+
+let demoObj: Object = 4
+console.log(demoObj)
+// demoObj.toFixed()
+
+
+let list: any[] = [1, 'asdfg', false]
+console.log(list[1])
+list[1] = 100
+console.log(list[1])
+
