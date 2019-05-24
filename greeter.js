@@ -67,3 +67,30 @@ create(null); // OK
 // create("string"); // Error
 // create(false); // Error
 // create(undefined); // Error
+// 类型断言
+var valued = "xxx";
+var valuedLength = valued.length;
+var valueLength = valued.length;
+try {
+    throw "oh no!";
+}
+catch (e) {
+    console.log("Oh well.");
+}
+function myFunction() {
+    try {
+        var x = document.getElementById("demo").value;
+        if (x == "")
+            throw "值为空";
+        if (isNaN(x))
+            throw "不是数字";
+        if (x > 10)
+            throw "太大";
+        if (x < 5)
+            throw "太小";
+    }
+    catch (err) {
+        var y = document.getElementById("mess");
+        y.innerHTML = "错误：" + err + "。";
+    }
+}
