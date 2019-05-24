@@ -94,3 +94,10 @@ function myFunction() {
         y.innerHTML = "错误：" + err + "。";
     }
 }
+// 对象的解构赋值
+var o = {
+    a: "foo",
+    b: 12,
+    c: "bar"
+};
+var newName1 = o.a, newName2 = o.b;
