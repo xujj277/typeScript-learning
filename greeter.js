@@ -77,23 +77,19 @@ try {
 catch (e) {
     console.log("Oh well.");
 }
-function myFunction() {
-    try {
-        var x = document.getElementById("demo").value;
-        if (x == "")
-            throw "值为空";
-        if (isNaN(x))
-            throw "不是数字";
-        if (x > 10)
-            throw "太大";
-        if (x < 5)
-            throw "太小";
-    }
-    catch (err) {
-        var y = document.getElementById("mess");
-        y.innerHTML = "错误：" + err + "。";
-    }
-}
+// function myFunction(){
+//   try{
+//     var x=document.getElementById("demo").value;
+//     if(x=="")    throw "值为空";
+//     if(isNaN(x)) throw "不是数字";
+//     if(x>10)     throw "太大";
+//     if(x<5)      throw "太小";
+//   }
+//   catch(err){
+//     var y=document.getElementById("mess");
+//     y.innerHTML="错误：" + err + "。";
+//   }
+// }
 // 对象的解构赋值
 var o = {
     a: "foo",
@@ -101,3 +97,18 @@ var o = {
     c: "bar"
 };
 var newName1 = o.a, newName2 = o.b;
+function createSquare(config) {
+    var newSquare = { color: "white", area: 100 };
+    if (config.clor) {
+        // Error: Property 'clor' does not exist on type 'SquareConfig'
+        newSquare.color = config.clor;
+    }
+    if (config.width) {
+        newSquare.area = config.width * config.width;
+    }
+    return newSquare;
+}
+var mySquare = createSquare({ color: "black" });
+var p1 = { x: 10, y: 20 };
+p1.x = 5; // error!
+

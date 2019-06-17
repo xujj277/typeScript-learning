@@ -99,19 +99,19 @@ catch (e) {
   console.log("Oh well.");
 }
 
-function myFunction(){
-  try{
-    var x=document.getElementById("demo").value;
-    if(x=="")    throw "值为空";
-    if(isNaN(x)) throw "不是数字";
-    if(x>10)     throw "太大";
-    if(x<5)      throw "太小";
-  }
-  catch(err){
-    var y=document.getElementById("mess");
-    y.innerHTML="错误：" + err + "。";
-  }
-}
+// function myFunction(){
+//   try{
+//     var x=document.getElementById("demo").value;
+//     if(x=="")    throw "值为空";
+//     if(isNaN(x)) throw "不是数字";
+//     if(x>10)     throw "太大";
+//     if(x<5)      throw "太小";
+//   }
+//   catch(err){
+//     var y=document.getElementById("mess");
+//     y.innerHTML="错误：" + err + "。";
+//   }
+// }
 
 
 // 对象的解构赋值
@@ -123,3 +123,40 @@ let o = {
 let { a: newName1, b: newName2 } = o;
 // let newName1 = o.a;
 // let newName2 = o.b;
+
+interface SquareConfig {
+  color?: string;
+  width?: number;
+}
+
+function createSquare(config: SquareConfig): { color: string; area: number } {
+  let newSquare = {color: "white", area: 100};
+  if (config.clor) {
+    // Error: Property 'clor' does not exist on type 'SquareConfig'
+    newSquare.color = config.clor;
+  }
+  if (config.width) {
+    newSquare.area = config.width * config.width;
+  }
+  return newSquare;
+}
+
+let mySquare = createSquare({color: "black"});
+
+interface Point {
+  readonly x: number;
+  readonly y: number;
+}
+
+let p1: Point = { x: 10, y: 20 };
+p1.x = 5; // error!
+
+let q: number[] = [1, 2, 3, 4];
+let jj: ReadonlyArray<number> = q;
+jj[0] = 12; // error!
+jj.push(5); // error!
+jj.length = 100; // error!
+q = jj; // error!
+
+
+let fibonacci: number[] = [1, '1', 2, 3, 5];
